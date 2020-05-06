@@ -15,6 +15,11 @@ Uygulama üzerine store'u kurduk. RootReducer'ı oluşturduk.
 ### `Provider, Redux Middleware ve Redux-devtools-extension eklenmesi`
 yarn add redux-devtools-extension --s
 
+### `Browser Router eklenmesi`
+yarn add react-router-dom --s
+
+
+
 ## Available Scripts
 
 In the project directory, you can run:

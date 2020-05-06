@@ -6,9 +6,12 @@ import * as serviceWorker from './serviceWorker';
 
 /** Redux ve Eklentileri */
 import { createStore, applyMiddleware } from 'redux';
-import { composeWithDevTools }from 'redux-devtools-extension';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
+
+/** React Router */
+import { BrowserRouter } from 'react-router-dom';
 
 /** Root Reducer */
 import rootReducer from './reducers/rootReducer';
@@ -23,9 +26,11 @@ const store = createStore(
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store = { store } >
-      <App />
-    </Provider>
+    <BrowserRouter>
+      <Provider store = { store } >
+        <App />
+      </Provider>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
