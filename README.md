@@ -12,6 +12,8 @@ yarn add redux react-redux redux-thunk --s
 
 Uygulama üzerine store'u kurduk. RootReducer'ı oluşturduk.
 
+### `Provider, Redux Middleware ve Redux-devtools-extension eklenmesi`
+yarn add redux-devtools-extension --s
 
 ## Available Scripts
 
