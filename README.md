@@ -18,7 +18,8 @@ yarn add redux-devtools-extension --s
 ### `Browser Router eklenmesi`
 yarn add react-router-dom --s
 
-
+### `redux-logger ve redux-promise-middleware eklenmesi`
+yarn add redux-logger redux-promise-middleware --s
 
 ## Available Scripts
 

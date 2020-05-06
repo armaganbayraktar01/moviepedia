@@ -9,6 +9,8 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
+import logger from 'redux-logger';
+import promise from 'redux-promise-middleware';
 
 /** React Router */
 import { BrowserRouter } from 'react-router-dom';
@@ -20,7 +22,7 @@ import rootReducer from './reducers/rootReducer';
 const store = createStore(
   rootReducer,
   composeWithDevTools(
-    applyMiddleware(thunk)
+    applyMiddleware(promise, thunk, logger)
   )
 );
 
