@@ -1,35 +1,36 @@
-# [MOVIEPEDIA]
+# MOVIEPEDIA
 
 ## Dependencies
-
-'c/xammp/htdocs' dizini içindeki <MY_APP_NAME> dizinine kurulum yaptık
-
-* ** Create React App **
+```jsx
+c/xammp/htdocs
+dizini içindeki <MY_APP_NAME> dizinine kurulum yaptık
+```
+*  Create React App 
 ```jsx
 npx create-react-app <MY_APP_NAME>
 ```
 
-* ** aoo redux, react-redux redux-thunk **
+*  aoo redux, react-redux redux-thunk 
 ```jsx
 yarn add redux react-redux redux-thunk --s
 ```
 
-* ** add Provider, Redux Middleware ve Redux-devtools-extension **
+* add Provider, Redux Middleware ve Redux-devtools-extension 
 ```jsx
 yarn add redux-devtools-extension --s
 ```
 
-* ** add Browser Router **
+* add Browser Router
 ```jsx
 yarn add react-router-dom --s
 ```
 
-* ** add redux-logger ve redux-promise-middleware **
+*  add redux-logger ve redux-promise-middleware 
 ```jsx
 yarn add redux-logger redux-promise-middleware --s
 ```
 
-* ** add Semantic UI **
+*  add Semantic UI 
 ```jsx
 yarn add semantic-ui-react semantic-ui-css --s
 ```
@@ -68,7 +69,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 yarn eject
 ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Note: this is a one-way operation. Once you `eject`, you can’t go back!
 
 If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 

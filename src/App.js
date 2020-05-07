@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 
 /** CSS Files */
 import './App.css';
@@ -8,29 +9,30 @@ import 'semantic-ui-css/semantic.min.css' ;
 import { navbarMenus } from './config/config';
 
 /** Components */
+import { Container } from 'semantic-ui-react';
 
+/** Components */
+import Header from './components/static_pages/Header';
+import Footer from './components/static_pages/Footer';
 
 /** Body */
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://create-react-app.dev/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          React App Created
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  render()
+  {
+    return (
+      <div className="App">
+        <Header/>
+        <Container text style={{ marginTop: '7em' }}>
+          <Route exact path={navbarMenus.homepage.path} component={navbarMenus.homepage.component}></Route>
+          <Route exact path={navbarMenus.moviespage.path} component={navbarMenus.moviespage.component}></Route>
+        </Container>
+        <Footer/>        
+      </div>
+    );
+  }
+
 }
 
 export default App;
