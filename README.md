@@ -1,45 +1,61 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# [MOVIEPEDIA]
 
-## Kurulumlar
+## Dependencies
 
 'c/xammp/htdocs' dizini içindeki <MY_APP_NAME> dizinine kurulum yaptık
 
-### `Create React App` 
+* ** Create React App **
+```jsx
 npx create-react-app <MY_APP_NAME>
+```
 
-### `Install redux, react-redux redux-thunk`
+* ** aoo redux, react-redux redux-thunk **
+```jsx
 yarn add redux react-redux redux-thunk --s
+```
 
-Uygulama üzerine store'u kurduk. RootReducer'ı oluşturduk.
-
-### `Provider, Redux Middleware ve Redux-devtools-extension eklenmesi`
+* ** add Provider, Redux Middleware ve Redux-devtools-extension **
+```jsx
 yarn add redux-devtools-extension --s
+```
 
-### `Browser Router eklenmesi`
+* ** add Browser Router **
+```jsx
 yarn add react-router-dom --s
+```
 
-### `redux-logger ve redux-promise-middleware eklenmesi`
+* ** add redux-logger ve redux-promise-middleware **
+```jsx
 yarn add redux-logger redux-promise-middleware --s
+```
+
+* ** add Semantic UI **
+```jsx
+yarn add semantic-ui-react semantic-ui-css --s
+```
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start`
-
+```jsx
+yarn start
+```
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `yarn test`
-
+```jsx
+yarn test
+```
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
-
+```jsx
+yarn build
+```
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
@@ -48,7 +64,9 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+```jsx
+yarn eject
+```
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 

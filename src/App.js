@@ -1,5 +1,17 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
+
+/** CSS Files */
 import './App.css';
+import 'semantic-ui-css/semantic.min.css' ;
+
+/** Configration */
+import { navbarMenus } from './config/config';
+
+/** Components */
+import { Container } from 'semantic-ui-react';
+
+/** Body */
 
 function App() {
   return (
