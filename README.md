@@ -51,6 +51,11 @@ yarn add semantic-ui-react semantic-ui-css --s
 yarn add axios --s
 ```
 
+*  add React Spinners
+```jsx
+yarn add react-spinners --s
+```
+
 ## Enviroments variables
 Create a file named ".env" in the root directory and fill its contents as follows.
 
