@@ -1,6 +1,17 @@
 # MOVIEPEDIA
 
-## Dependencies
+## How to Install
+Clone this folder and install dependencies.
+
+```jsx
+mkdir moviepedia
+cd moviepedia
+git init
+git clone https://github.com/armaganbayraktar01/moviepedia.git
+npm install
+```
+
+### Dependencies (for manual install)
 ```jsx
 c/xammp/htdocs
 dizini içindeki <MY_APP_NAME> dizinine kurulum yaptık
@@ -33,6 +44,13 @@ yarn add redux-logger redux-promise-middleware --s
 *  add Semantic UI 
 ```jsx
 yarn add semantic-ui-react semantic-ui-css --s
+```
+
+## Enviroments variables
+Create a file named ".env" in the root directory and fill its contents as follows.
+
+```jsx
+API_BASE = API URL DEFAULT: localhost:3000
 ```
 
 ## Available Scripts
