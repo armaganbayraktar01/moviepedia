@@ -46,6 +46,11 @@ yarn add redux-logger redux-promise-middleware --s
 yarn add semantic-ui-react semantic-ui-css --s
 ```
 
+*  add Axios
+```jsx
+yarn add axios --s
+```
+
 ## Enviroments variables
 Create a file named ".env" in the root directory and fill its contents as follows.
 
