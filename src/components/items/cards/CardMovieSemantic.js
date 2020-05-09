@@ -69,9 +69,9 @@ const CardMovieSemantic  = props => {
 CardMovieSemantic.propTypes = {
     _id:PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
+    titleTr: PropTypes.string.isRequired,
     cover: PropTypes.string.isRequired,
-    //imbd: PropTypes.number.isRequired,
-    desc: PropTypes.string.isRequired,
+    imbd_rating: PropTypes.string.isRequired
 };
 
 export default CardMovieSemantic;

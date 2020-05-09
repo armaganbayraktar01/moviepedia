@@ -27,6 +27,7 @@ class App extends Component {
         <Container text style={{ marginTop: '7em' }}>
           <Route exact path={navbarMenus.homepage.path} component={navbarMenus.homepage.component}></Route>
           <Route exact path={navbarMenus.moviespage.path} component={navbarMenus.moviespage.component}></Route>
+          <Route exact path={navbarMenus.moviedetailpage.path} component={navbarMenus.moviedetailpage.component}></Route>
         </Container>
         <Footer/>        
       </div>

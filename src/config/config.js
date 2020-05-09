@@ -1,6 +1,8 @@
 import siteLogo from '../logo.svg';
 import homePage from '../components/pages/homePage';
 import moviesPage from '../components/pages/moviesPage';
+import movieDetailPage from '../components/pages/movieDetailPage';
+//import addMoviePage from '../components/pages/addMoviePage';
 
 export const siteMeta = {
     title: 'Moviepedia',
@@ -21,5 +23,11 @@ export const navbarMenus = {
         title: 'Movies',
         path: '/movies',
         component: moviesPage
+    },
+    moviedetailpage: {
+        title: 'Movies',
+        path: '/movie/:_id',
+        component: movieDetailPage
     }
+
 }
