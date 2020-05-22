@@ -5,17 +5,16 @@ import { Link } from 'react-router-dom';
 
 
 
-const CardMovieSemantic  = props => {
+const MovieCardSemantic  = props => {
 
     return (
         
         <div>
             <Card>
-                <Card 
-                    as={Link} 
-                    to={`/movie/${props._id}`}
-                >
-                    <Image 
+                <Card>
+                    <Image
+                        as={Link} 
+                        to={`/movie/${props._id}`}
                         fluid
                         label={
                             {
@@ -66,7 +65,7 @@ const CardMovieSemantic  = props => {
 };
 
 
-CardMovieSemantic.propTypes = {
+MovieCardSemantic.propTypes = {
     _id:PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     titleTr: PropTypes.string.isRequired,
@@ -74,4 +73,4 @@ CardMovieSemantic.propTypes = {
     imbd_rating: PropTypes.string.isRequired
 };
 
-export default CardMovieSemantic;
+export default MovieCardSemantic;

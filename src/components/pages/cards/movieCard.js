@@ -1,12 +1,12 @@
 import React from 'react';
 import { Card, Grid } from 'semantic-ui-react';
-import CardMovieSemantic from '../../items/cards/CardMovieSemantic';
+import MovieCardSemantic from '../../items/cards/MovieCardSemantic';
 
 
 const movieCard  = ({ movieListDataProps, deleteMovieProps }) => (
     <Grid.Column>
         <Card>
-            <CardMovieSemantic
+            <MovieCardSemantic
                 _id = { movieListDataProps._id }
                 cover = { movieListDataProps.cover }
                 title = { movieListDataProps.title }

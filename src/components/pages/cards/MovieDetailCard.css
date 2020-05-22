@@ -1,0 +1,267 @@
+/**  DF9D5C                    */
+:root {
+    --textWhite: #f7f1f0;
+    --imageFilterColor: #E65555;
+    --imageFilterColorDark: #97493d;
+    --butonColor: #AE5A62;
+    --infoBackgroundColor:#12232B;
+    --infoBackgroundColor3:#665F54;
+    --infoBackgroundColor2:#AE5A62;
+}
+
+/** Row 1 */
+
+.infoContainer {
+    width:100%;
+    overflow:hidden;
+    margin:0;
+    height:auto;
+}
+
+.infoContainerImg {
+    display: block;
+    max-width: 100%;
+    margin: -100px 0;
+    height: auto;
+    filter: var(--imageCoverFilter) !important; 
+}
+
+.ui .movieInfo {
+    width: 100%;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    position: absolute;
+    left: 30px;
+    top: 100px;
+}
+
+.ui .movieInfoTitle{
+    color:var(--textWhite);
+    font-family: var(--fontFamily);
+    font-style: normal;
+    font-weight: 900;
+    font-size: 80px!important;
+}
+
+.ui .movieInfoTag{
+    color: var(--textWhite);
+    border: 1px solid var(--textWhite);
+    background: transparent;
+    margin-bottom: 0!important;
+    margin-left: 0!important;  
+    margin-right: 10px!important;
+    margin-top: 10px!important;
+
+}
+
+.ui .movieInfoRating{ 
+
+    background: rgba(174, 90, 98, 0.7)!important;
+    border:none!important;
+
+}
+
+.ui .movieInfoRatingLabel{
+    /*color: yellow!important;*/
+    background: transparent!important;
+    border: none!important;
+    margin-right: 0;
+    padding-left: 5px;
+    padding-top: 5px!important;
+    padding-bottom: 5px!important;
+    padding-right: 0!important;
+    font-size: 40px!important;
+}
+
+.ui .movieInfoRatingLabel .icon{
+    color: yellow!important;
+    margin-right: 5px;
+}
+
+.ui .movieInfoRatingText{
+
+    color: var(--textWhite)!important;
+    background: transparent!important;
+    border: none!important;
+    margin-right: 0;
+    padding-left: 0!important;
+    padding-top: 5px!important;
+    padding-bottom: 5px!important;
+    padding-right: 5px!important;
+    font-size: 40px!important;
+}
+
+.ui .movieInfoRatingSpan{
+    padding-left: 5px!important;
+    font-size: 30px!important;
+    color: #c7c5c4!important;
+}
+
+/** Row 2*/
+
+.ui .detailContainer {
+    color: var(--textWhite);
+    background:var(--infoBackgroundColor);
+}
+
+.ui .movieDetailTitle {
+    color: var(--textWhite);
+    font-family: var(--fontFamily);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px!important;
+}
+
+
+.ui .movieDetailSynopsis {
+    font-family: var(--fontFamily);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px!important;
+
+}
+
+.ui .addWatclistButton{
+    color:var(--textWhite);
+    background: var(--butonColor)!important;
+}
+
+.ui .addWatclistButton:hover{
+    color:var(--textWhite)!important;
+    background: var(--imageFilterColorDark)!important;
+}
+
+/** Row 3*/
+
+.ui .castContainer {
+    color: var(--textWhite);
+    background:var(--infoBackgroundColor2);
+}
+
+.ui .castTitle{
+    color: var(--textWhite);
+    font-family: var(--fontFamily);
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px!important;
+}
+
+.ui .imageContainer {
+    color: var(--textWhite);
+    background:var(--infoBackgroundColor3);
+}
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+
+    /** Row 1 */
+
+    .infoContainerImg {
+        margin:0;
+    }    
+
+    .ui .movieInfo {
+        top:0;
+        left:0;
+        margin-top: 10px;
+    }
+
+    .ui .movieInfoTitle{
+        font-size: 25px!important;
+    }
+
+    .ui .movieInfoTag{
+        font-size: 8px!important;
+    }
+
+    .ui .movieInfoRating{ 
+
+        padding: 0!important;
+    
+    }
+
+    .ui .movieInfoRatingLabel{
+        font-size: 15px!important;
+        padding-left: 2px;
+        padding-top: 2px!important;
+        padding-bottom: 2px!important;
+
+    }
+    
+    .ui .movieInfoRatingText{
+        font-size: 15px!important;
+        padding-top: 2px!important;
+        padding-bottom: 2px!important;
+        padding-right: 2px!important;
+    }
+
+    .ui .movieInfoRatingSpan{
+        font-size: 10px!important;
+    }
+
+    /** Row 2 */
+            
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-width : 481px) and (max-width : 767px) {
+
+    /** Row 1 */
+
+    .infoContainerImg {
+        margin:0;
+
+    }  
+
+    .ui .movieInfo {
+        top:50px;
+        left:20px;
+    }
+
+    .ui .movieInfoTitle{
+        font-size: 45px!important;
+    }
+
+    /** Row 2 */
+    
+
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-width : 768px) and (max-width : 1023px) {
+
+    /** Row 1 */
+
+
+    .ui .movieInfo {
+        top:40px;
+        left:20px;
+    }
+
+    .ui .movieInfoTitle{
+        font-size: 70px!important;
+    }
+
+    .ui .movieInfoRating{ 
+        
+        padding: 0.1em!important;
+    }
+
+    .ui .movieInfoRatingLabel{
+        font-size: 30px!important;
+    }
+    
+    .ui .movieInfoRatingText{
+        font-size: 30px!important;
+    }
+
+    .ui .movieInfoRatingSpan{
+        font-size: 15px!important;
+    }
+
+    /** Row 2 */
+    
+
+}

@@ -38,7 +38,7 @@ const MoviesList  = ({ moviesReducerProps }) => {
 
     const movieCardContent = 
     (
-        <Grid stackable centered columns={"3"}>   
+        <Grid stackable centered columns={"4"}>   
         {
             moviesReducerProps.moviesReducerList.map(
                 movieListData => 
@@ -64,8 +64,7 @@ const MoviesList  = ({ moviesReducerProps }) => {
                         errorDesc="Failed to retrieve data. Please try again later."        
                     />
                 : movieCardContent 
-            }
-   
+            }   
         </div>
     );
 

@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import MovieDetailCard from '../cards/movieDetailCard';
 import ErrorMessageLabel from '../../items/labels/ErrorMessageLabel';
 
-
 /** Body */
 class movieDetail extends Component
 {
@@ -26,6 +25,7 @@ class movieDetail extends Component
                 imbd_id:  selectMovie.imbd_id,
                 imbd_rating:  selectMovie.imbd_rating,
                 synopsis:  selectMovie.synopsis,
+                duration:  selectMovie.duration,
                 genres:  selectMovie.genres,
                 relase_year:  selectMovie.relase_year,
                 director:  selectMovie.director,
@@ -44,11 +44,13 @@ class movieDetail extends Component
         imbd_id:  this.props.findMovieDetailProps ? this.props.findMovieDetailProps.imbd_id : "",
         imbd_rating:  this.props.findMovieDetailProps ? this.props.findMovieDetailProps.imbd_rating : "",
         synopsis:  this.props.findMovieDetailProps ? this.props.findMovieDetailProps.synopsis : "",
+        duration:  this.props.findMovieDetailProps ? this.props.findMovieDetailProps.duration : "",
         genres:  this.props.findMovieDetailProps ? this.props.findMovieDetailProps.genres : "",
         relase_year:  this.props.findMovieDetailProps ? this.props.findMovieDetailProps.relase_year : "",
         director:  this.props.findMovieDetailProps ? this.props.findMovieDetailProps.director : "",
         cast:  this.props.findMovieDetailProps ? this.props.findMovieDetailProps.cast : "",
         createdAt:  this.props.findMovieDetailProps ? this.props.findMovieDetailProps.createdAt : "",
+
         //formErrors: {},
         redirect: false
     };
@@ -59,36 +61,33 @@ class movieDetail extends Component
 
     render() {
 
+        const emptyMovieListMessage = 
+        (
+            <ErrorMessageLabel
+                errorTitle="Ooops"
+                errorDesc="There are no movies yet"        
+            />
+        );
 
 
-        const errorMessage = 
-        (      
-            this.props.moviesReducerProps.error.request &&
-            (   
-                <ErrorMessageLabel
-                    errorTitle="Disconnect Server"
-                    errorDesc="Failed to retrieve data. Please try again later."        
-                />
-            )
+        const movieDetailCardContent = (
 
-        )
-
-        const movieDetailCardContent = ( 
             <MovieDetailCard
                 movieData = { this.state }
             />     
         )
 
-
-
         return (
+            
             <div>
-                 { errorMessage ? errorMessage : movieDetailCardContent }   
+                { 
+                    movieDetailCardContent ? movieDetailCardContent : emptyMovieListMessage
+                }
+                   
             </div>
         );
     }
 }
-
 
 const mapStateToProps = state => {
     return {
