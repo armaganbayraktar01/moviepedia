@@ -5,15 +5,37 @@ import { Container, Header, Label, Grid, Segment, Card, Image, Embed  } from 'se
 
 /** CSS Files */
 import './MovieDetailCard.css';
-//import { Link } from 'react-router-dom';
+
 
 
 const movieDetailCard  = ({ movieData }) => {
 
+
+
     const genres = Array.from(movieData.genres);
     const directors = Array.from(movieData.director);
     const persons = Array.from(movieData.cast);
-    //persons.map((person) => <li key={person._id}>{person.fullname}</li>)
+    const images = Array.from(movieData.images);
+    const videos = Array.from(movieData.videos);
+
+    // Container Image Cover
+    const bgImage = images.map( item => {
+        return item.url
+    });
+    const bgImageUrl = bgImage[Math.floor(Math.random() * bgImage.length)];
+
+    // Trailer Image Placeholder
+     const trailerImage = images.map( item => {
+        return item.thumbUrl
+    });
+    const trailerImageUrl = trailerImage[Math.floor(Math.random() * trailerImage.length)]
+
+    // Trailer Image Placeholder
+    const trailerVideo = videos.map( item => {
+        return item.ytid
+    });
+    const trailerVideoUrl = trailerVideo[Math.floor(Math.random() * trailerVideo.length)]
+
 
     return (
             
@@ -24,8 +46,11 @@ const movieDetailCard  = ({ movieData }) => {
 
                     <Grid.Row className="infoContainer">
 
-                        <Image className="infoContainerImg" src="https://image.tmdb.org/t/p/original/7UWRq79VHc58QXTSn57UsOUKQLZ.jpg"/>
-                    
+                        <Image
+                            className="infoContainerImg"
+                            src={bgImageUrl}
+                        />
+
                         <Segment className="movieInfo">
                             <Grid stackable>
                                 <Grid.Column width={10} floated="left" >
@@ -37,7 +62,7 @@ const movieDetailCard  = ({ movieData }) => {
                                         <Header.Subheader>
                                             <Label.Group>
                                                 <Label className="movieInfoTag" >{ movieData.relase_year}</Label>
-                                                <Label className="movieInfoTag" >{ movieData.duration } Min</Label> {/** düzelt hata */}
+                                                <Label className="movieInfoTag" >{ movieData.duration } Min</Label>
                                                 {                                    
                                                     genres.map((genre) =>
                                                         <Label className="movieInfoTag" key={genre}>{ genre }</Label>
@@ -105,8 +130,8 @@ const movieDetailCard  = ({ movieData }) => {
                                         autoplay={true}
                                         color='black'
                                         source='youtube'
-                                        id='t-vUZjAuCFs'
-                                        placeholder='https://image.tmdb.org/t/p/w533_and_h300_bestv2/s1fDAwf6a3TxewcKJgj16pcegzZ.jpg'
+                                        id={trailerVideoUrl}
+                                        placeholder={trailerImageUrl}
                                         aspectRatio='16:9'
                                         hd={true}
                                         iframe={
@@ -198,19 +223,23 @@ const movieDetailCard  = ({ movieData }) => {
 
                             <Segment basic>
                                 <Header size="medium" className="castTitle">
-                                    {"FOTOĞRAF & VİDEO"}
+                                    {"IMAGES"}
                                 </Header>
                             </Segment>  
 
                             <Segment basic>   
-                                <Card.Group itemsPerRow={6} stackable>
+                                <Card.Group itemsPerRow={3} stackable>
                                     {                                    
-                                        persons.map((person) => 
-                                            <Card key = { person._id}
-                                                image= { person.cover }
-                                                header = { person.fullname }
-                                                meta = ""
+                                        images.map((image) => 
+                                            <Card 
+                                                key = { image._id}
+                                                image= { image.thumbUrl }
+                                                href={image.url}
+                                                target='_blank'
+                                                //header = { image.title }
+                                                //meta = ""
                                             />
+
                                         )
                                     }
                                 </Card.Group>

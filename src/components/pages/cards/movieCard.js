@@ -5,6 +5,7 @@ import MovieCardSemantic from '../../items/cards/MovieCardSemantic';
 
 const movieCard  = ({ movieListDataProps, deleteMovieProps }) => (
     <Grid.Column>
+ 
         <Card>
             <MovieCardSemantic
                 _id = { movieListDataProps._id }
@@ -22,6 +23,7 @@ const movieCard  = ({ movieListDataProps, deleteMovieProps }) => (
                 deleteButton = { deleteMovieProps }
             />           
         </Card>
+
     </Grid.Column>
 );
 

@@ -30,6 +30,9 @@ class movieDetail extends Component
                 relase_year:  selectMovie.relase_year,
                 director:  selectMovie.director,
                 cast:  selectMovie.cast,
+                images:  selectMovie.images,
+                videos:  selectMovie.videos,
+                countries:  selectMovie.countries,
                 createdAt:  selectMovie.createdAt
             })
         }
@@ -49,6 +52,9 @@ class movieDetail extends Component
         relase_year:  this.props.findMovieDetailProps ? this.props.findMovieDetailProps.relase_year : "",
         director:  this.props.findMovieDetailProps ? this.props.findMovieDetailProps.director : "",
         cast:  this.props.findMovieDetailProps ? this.props.findMovieDetailProps.cast : "",
+        images:  this.props.findMovieDetailProps ? this.props.findMovieDetailProps.images : "",
+        videos:  this.props.findMovieDetailProps ? this.props.findMovieDetailProps.videos : "",
+        countries:  this.props.findMovieDetailProps ? this.props.findMovieDetailProps.countries : "",
         createdAt:  this.props.findMovieDetailProps ? this.props.findMovieDetailProps.createdAt : "",
 
         //formErrors: {},

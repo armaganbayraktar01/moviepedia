@@ -38,6 +38,7 @@ const MoviesList  = ({ moviesReducerProps }) => {
 
     const movieCardContent = 
     (
+        
         <Grid stackable centered columns={"4"}>   
         {
             moviesReducerProps.moviesReducerList.map(

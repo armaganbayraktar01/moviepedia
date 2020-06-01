@@ -25,6 +25,7 @@ class App extends Component {
       <div className="App">
         <Header/>
         <Container text >
+          <Route path={navbarMenus.adminpage.path} component={navbarMenus.adminpage.component} />
           <Route exact path={navbarMenus.homepage.path} component={navbarMenus.homepage.component}></Route>
           <Route exact path={navbarMenus.moviespage.path} component={navbarMenus.moviespage.component}></Route>
           <Route exact path={navbarMenus.moviedetailpage.path} component={navbarMenus.moviedetailpage.component}></Route>

@@ -1,4 +1,5 @@
 import siteLogo from '../logo.svg';
+import adminPage from '../components/pages/adminPage';
 import homePage from '../components/pages/homePage';
 import moviesPage from '../components/pages/moviesPage';
 import movieDetailPage from '../components/pages/movieDetailPage';
@@ -13,7 +14,11 @@ export const siteMeta = {
 };
 
 export const navbarMenus = {
-
+    adminpage: {
+        title: 'Admin',
+        path: '/dashboard',
+        component: adminPage
+    },
     homepage: {
         title: 'Home',
         path: '/',
