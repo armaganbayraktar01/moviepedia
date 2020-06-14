@@ -26,6 +26,14 @@ class Header extends Component
                             { navbarMenus.moviespage.title }
                         </Menu.Item>
 
+                        <Menu.Item as={ NavLink } to={navbarMenus.addmoviepage.path} exact>
+                            { navbarMenus.addmoviepage.title }
+                        </Menu.Item>
+
+                        <Menu.Item as={ NavLink } to={navbarMenus.personspage.path} exact>
+                            { navbarMenus.personspage.title }
+                        </Menu.Item>
+
                     </Container>
                 </Menu>
             </div>

@@ -26,7 +26,8 @@ class moviesPage extends Component
         return (
             <div>
                 <MoviesList
-                    moviesReducerProps = { this.props.moviesReducer }          
+                    moviesReducerProps = { this.props.moviesReducer }
+                    personsReducerProps = { this.props.personsReducer }           
                 />  
             </div>
         );
@@ -36,7 +37,7 @@ class moviesPage extends Component
 /** Reducers */
 const mapStateToProps = ({ moviesReducer }) => {
     return {
-        moviesReducer         
+        moviesReducer,      
     }
 };
 

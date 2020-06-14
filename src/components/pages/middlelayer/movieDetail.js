@@ -35,8 +35,12 @@ class movieDetail extends Component
                 countries:  selectMovie.countries,
                 createdAt:  selectMovie.createdAt
             })
-        }
+        }  
+        
+        
     }
+
+  
     
     /** findMovieDetailProps dan gelen data */
     state = {
@@ -65,7 +69,11 @@ class movieDetail extends Component
         
     };
 
+    
     render() {
+
+        //console.log('state  - ' + this.state.genres)
+
 
         const emptyMovieListMessage = 
         (
@@ -95,11 +103,13 @@ class movieDetail extends Component
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ moviesReducer }) => {
     return {
-            
+        moviesReducer            
     }
 };
+
+
 
 export default connect(mapStateToProps)(movieDetail);
 

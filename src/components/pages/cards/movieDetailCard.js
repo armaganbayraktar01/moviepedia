@@ -36,7 +36,6 @@ const movieDetailCard  = ({ movieData }) => {
     });
     const trailerVideoUrl = trailerVideo[Math.floor(Math.random() * trailerVideo.length)]
 
-
     return (
             
         <div>
@@ -64,8 +63,8 @@ const movieDetailCard  = ({ movieData }) => {
                                                 <Label className="movieInfoTag" >{ movieData.relase_year}</Label>
                                                 <Label className="movieInfoTag" >{ movieData.duration } Min</Label>
                                                 {                                    
-                                                    genres.map((genre) =>
-                                                        <Label className="movieInfoTag" key={genre}>{ genre }</Label>
+                                                    genres.map((genre) =>                                  
+                                                        <Label className="movieInfoTag" key={genre.label ? genre.label : genres}>{ genre.label ? genre.label : genres }</Label>
                                                     )
                                                 }
                                             </Label.Group>

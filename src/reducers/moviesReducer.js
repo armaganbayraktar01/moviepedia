@@ -61,7 +61,7 @@ export default (state = initialState, action) =>
                 ...state,
                 selectMovie: {
                     fetching: false
-                    } 
+                } 
 
             };
 

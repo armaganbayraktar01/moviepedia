@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 /** CSS Files */
 import './App.css';
@@ -25,10 +25,14 @@ class App extends Component {
       <div className="App">
         <Header/>
         <Container text >
-          <Route path={navbarMenus.adminpage.path} component={navbarMenus.adminpage.component} />
+          <Switch>
           <Route exact path={navbarMenus.homepage.path} component={navbarMenus.homepage.component}></Route>
           <Route exact path={navbarMenus.moviespage.path} component={navbarMenus.moviespage.component}></Route>
           <Route exact path={navbarMenus.moviedetailpage.path} component={navbarMenus.moviedetailpage.component}></Route>
+          <Route exact path={navbarMenus.addmoviepage.path} component={navbarMenus.addmoviepage.component}></Route>
+          <Route exact path={navbarMenus.editmoviepage.path} component={navbarMenus.editmoviepage.component}></Route>
+          <Route exact path={navbarMenus.personspage.path} component={navbarMenus.personspage.component}></Route>
+          </Switch>
         </Container>
         <Footer/>        
       </div>

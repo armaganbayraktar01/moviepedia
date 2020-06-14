@@ -41,6 +41,7 @@ export function FetchMovieDetail(id)
                 type: "FETCH_DETAIL_MOVIE",
                 payload: axios.get(`${API_BASE}/movies/${id}`)
                 .then( result => result.data)
+                //.then( result => console.log(result.data))
             }
         )            
     }

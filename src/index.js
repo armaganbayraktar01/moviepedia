@@ -18,6 +18,9 @@ import { BrowserRouter } from 'react-router-dom';
 /** Root Reducer */
 import rootReducer from './reducers/rootReducer';
 
+/** JWT */
+import { setAuthorizationToken } from "./config/setAuthorizationToken";
+
 /** Store */
 const store = createStore(
   rootReducer,
@@ -25,6 +28,14 @@ const store = createStore(
     applyMiddleware(promise, thunk, logger)
   )
 );
+
+/** JWT TOKEN */
+
+const jwtToken = localStorage.getItem("jwtToken");
+if (jwtToken) {
+    setAuthorizationToken(jwtToken);
+}
+
 
 ReactDOM.render(
     <BrowserRouter>

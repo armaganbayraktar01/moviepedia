@@ -9,17 +9,17 @@ import ErrorMessageLabel from '../../items/labels/ErrorMessageLabel';
 import { ClockLoader } from 'react-spinners';
 
 /** Components */
-import MovieCard from '../cards/movieCard';
+import PersonCard from '../cards/personCard';
 
 
 /** Body */
-const MoviesList  = ({ moviesReducerProps }) => {
+const PersonsList  =  ({ personsReducerProps })  => {
 
     const listEmptyMessage = 
     (
         <ErrorMessageLabel
             errorTitle="Ooops"
-            errorDesc="There are no movies yet"        
+            errorDesc="There are no persons yet"        
         />
     );
  
@@ -29,69 +29,65 @@ const MoviesList  = ({ moviesReducerProps }) => {
         {
             <ClockLoader
                 color={'#d50b0b'}
-                loading={moviesReducerProps.fetching}
+                loading={personsReducerProps.fetching}
                 size={50}
             />
         }
         </Grid>
     );
 
-    const movieCardContent = 
+    const personCardContent = 
     (
         
         <Grid stackable centered columns={"4"}>   
         {
-            moviesReducerProps.moviesReducerList.map(
-                movieListData => 
-                <MovieCard
-                    key = { movieListData._id }
-                    movieListDataProps = { movieListData }
+            personsReducerProps.personsReducerList.map(
+                personListData => 
+                <PersonCard
+                    key = { personListData._id }
+                    personListDataProps = { personListData }
                     //deleteMovieProps = { onDeleteMovieSubmitProps }
                 />
             )
         }
         </Grid>
     );
-  
 
     const displayCardContent = 
     (
         <div>
             {
-                moviesReducerProps.error.response 
+                personsReducerProps.error.response 
                 ?
                     <ErrorMessageLabel
                         errorTitle="Disconnect Server"
                         errorDesc="Failed to retrieve data. Please try again later."        
                     />
-                : movieCardContent 
+                : personCardContent 
             }   
         </div>
-    );
+    ); 
+
 
     return (
-        
-
         <div>
             {
-                moviesReducerProps.moviesReducerList.length === 0 ? 
+                personsReducerProps.personsReducerList.length === 0 ? 
                 (
-                    moviesReducerProps.fetching ? loader :  listEmptyMessage
+                    personsReducerProps.fetching ? loader :  listEmptyMessage
                 ) : displayCardContent
                        
             }    
 
         </div>
     );
-
 };
 
 
-MoviesList.propTypes = {
-    moviesReducerProps: PropTypes.shape({
-        moviesReducerList: PropTypes.array.isRequired
+PersonsList.propTypes = {
+    personsReducerProps: PropTypes.shape({
+        personsReducerList: PropTypes.array.isRequired
     }).isRequired
 };
 
-export default MoviesList;
-
+export default PersonsList;
