@@ -15,7 +15,7 @@
     width:100%;
     overflow:hidden;
     margin:0;
-    height:500px;
+    height:450px;
 }
 
 .infoContainerImg {
@@ -25,7 +25,7 @@
     filter: var(--imageCoverFilter) !important; 
 }
 
-.ui .movieInfo {
+.ui .personInfo {
     width: 100%;
     border: none;
     background: transparent;
@@ -35,7 +35,7 @@
     top: 90px!important;
 }
 
-.ui .movieInfoTitle{
+.ui .personInfoTitle{
     color:var(--textWhite);
     font-family: var(--fontFamily);
     font-style: normal;
@@ -43,42 +43,38 @@
     font-size: 80px!important;
 }
 
-/** Tags */
-
-.ui .movieInfoTag{
-    color: var(--textWhite);
-    border: 1px solid var(--textWhite);
-    background: transparent;
-    margin-bottom: 0!important;
-    margin-left: 0!important;  
-    margin-right: 10px!important;
-    margin-top: 10px!important;
-}
 
 /** Rating Label */
 
-.ui .statistic {
+.ui .statistic2 {
     float: left;
     font-family: var(--fontFamily)!important;
 }
 
-.ui .statisticBox {
+.ui .statistic2Box {
     margin-left: 0 !important;
 }
 
-.ui .statistic .icon {
-    font-size: 40px!important;  
+
+.ui .statistic2Box:first-child {
+    margin-bottom: 50px!important;
 }
 
-.ui .statisticValue {
-    font-size: 55px!important;
-    padding-left: 5px;
+.ui .statistic2Box .label {
+    padding-right: 30px!important;
+    font-size: 20px!important;
 }
 
-.ui .statistic .label {
-    font-size: 50px!important;
-    margin-left: 5px!important;
+.ui .statistic2Label {   
+    line-height: normal!important;
 }
+
+.ui .statistic2Box .statistic2Value {
+    padding-right: 20px!important;
+    font-size: 70px!important;
+}
+
+
 
 /** Row 2*/
 
@@ -87,7 +83,7 @@
     background:var(--infoBackgroundColor);
 }
 
-.ui .movieDetailTitle {
+.ui .personDetailTitle {
     color: var(--textWhite);
     font-family: var(--fontFamily);
     font-style: normal;
@@ -96,7 +92,7 @@
 }
 
 
-.ui .movieDetailSynopsis {
+.ui .personDetailSynopsis {
     font-family: var(--fontFamily);
     font-style: normal;
     font-weight: 400;
@@ -143,59 +139,58 @@
     .infoContainer {
         height: 250px;
     }
+
+    /** Person Info */
     
-    .ui .movieInfo {
+    .ui .personInfo { 
         top: 15px!important;
         left: 5px;
     }
 
-
-    .ui .movieInfoTitle{
+    .ui .personInfoTitle{
         font-size: 32px!important;
         margin: 5px !important;
     }
 
-    /** Tags */
-
-    .ui .movieInfoTag{
-        font-size: 10px!important;
-        margin-top: 20px!important;
-    }
 
     /** Rating Label */
 
-    .ui .statistic {
+    .ui .statistic2 {
         float: left;
         padding: 0!important;
     }
 
-    .ui .statisticGroup{
+    .ui .statistic2Group{
         margin: 0!important;
     }
+    
+    .ui .statistic2Box {
+        
+        padding-right: 0!important;
 
-    .ui .statisticBox {
-        margin-right: 0 !important;
+    }
+    
+    .ui .statistic2Box:first-child {
+        margin-right: 25px!important;
         margin-bottom: 0 !important;
-        vertical-align: bottom!important;
+    }    
+    
+    .ui .statistic2Box .label {
+        font-size: 13px!important;
+        margin-left: 0!important;
+        padding-right: 15px!important;
+    }  
+    
+    .ui .statistic2Box .statistic2Value {
+        font-size: 45px!important;
+        padding-right: 0!important;
     }
-
-    .ui .statistic .icon {
-        font-size: 20px!important;    
-    }
-
-    .ui .statisticValue {
-        font-size: 30px!important;
-    }
-
-    .ui .statistic .label {
-        font-size: 25px!important;
-    }
-
+               
 }
 
 
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-width : 767px) and (max-width : 1023px) {
+@media only screen and (min-width : 767px) and (max-width : 1023px) {  
 
     /** Row 1 */
 
@@ -203,45 +198,57 @@
         height: 350px;
     }
 
-    .ui .movieInfo { 
+    /** Person Info */
+    
+    .ui .personInfo { 
         top: 30px!important;
         left: 5px;
     }
 
-    .ui .movieInfoTitle{
+    .ui .personInfoTitle{
         font-size: 60px!important;
         margin: 5px !important;
     }
 
+
     /** Rating Label */
 
-    .ui .statistic {
-        float: left;
+    .ui .statistic2 {
+
         left: -20px;
-        top: 40px;
+        top: 30px;
+        float: left;
         padding: 0!important;
     }
 
     .ui .statistic2Group{
         margin: 0!important;
     }
-
-    .ui .statisticBox {
-
-        margin-bottom: 0 !important;
+    
+    .ui .statistic2Box {
         margin-right: 0 !important;
-    }
 
-    .ui .statistic .icon {
-        font-size: 35px!important;    
     }
-
-    .ui .statisticValue {
+    
+    .ui .statistic2Box:first-child {
+        margin-bottom: 40px!important;
+    }
+    
+    
+    .ui .statistic2 .label {
+        padding-right: 20px!important;
+        font-size: 16px!important;
+    }
+    
+    .ui .statistic2Label {   
+        line-height: normal!important;
+    }
+    
+    .ui .statistic2Box .statistic2Value {
         font-size: 50px!important;
+        padding-right: 0 !important;
     }
+    
 
-    .ui .statistic .label {
-        font-size: 35px!important;
 
-    }
 }

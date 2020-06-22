@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 /** Actions */
-import { fetchMovies } from '../../actions/moviesReducerAction';
+import { fetchMovies, onDeleteMovieSubmit } from '../../actions/moviesReducerAction';
 
 /** Components */
 import MoviesList from './lists/MoviesList';
@@ -14,6 +14,7 @@ class moviesPage extends Component
 
     static propTypes = {
         moviesReducer: PropTypes.object.isRequired,
+        onDeleteMovieSubmit: PropTypes.func.isRequired
     };
 
     /** moviesReducerAction => fetchMovies */
@@ -27,7 +28,8 @@ class moviesPage extends Component
             <div>
                 <MoviesList
                     moviesReducerProps = { this.props.moviesReducer }
-                    personsReducerProps = { this.props.personsReducer }           
+                    personsReducerProps = { this.props.personsReducer }
+                    onDeleteMovieSubmitProps = { this.props.onDeleteMovieSubmit }          
                 />  
             </div>
         );
@@ -43,7 +45,8 @@ const mapStateToProps = ({ moviesReducer }) => {
 
 /** Action file dispatch */
 const mapDispatchToProps = {
-    fetchMovies
+    fetchMovies,
+    onDeleteMovieSubmit
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(moviesPage);

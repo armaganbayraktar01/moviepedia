@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import 'semantic-ui-css/semantic.min.css' ;
 import './App-theme.css';
+
 /** Configration */
 import { navbarMenus } from './config/config';
 
@@ -31,7 +32,9 @@ class App extends Component {
           <Route exact path={navbarMenus.moviedetailpage.path} component={navbarMenus.moviedetailpage.component}></Route>
           <Route exact path={navbarMenus.addmoviepage.path} component={navbarMenus.addmoviepage.component}></Route>
           <Route exact path={navbarMenus.editmoviepage.path} component={navbarMenus.editmoviepage.component}></Route>
-          <Route exact path={navbarMenus.personspage.path} component={navbarMenus.personspage.component}></Route>
+          <Route exact path={navbarMenus.directorspage.path} component={navbarMenus.directorspage.component}></Route>
+          <Route exact path={navbarMenus.castpage.path} component={navbarMenus.castpage.component}></Route>
+          <Route exact path={navbarMenus.persondetailpage.path} component={navbarMenus.persondetailpage.component}></Route>
           </Switch>
         </Container>
         <Footer/>        

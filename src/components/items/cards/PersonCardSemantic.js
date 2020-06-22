@@ -32,9 +32,9 @@ const PersonCardSemantic  = props => {
                             <Dropdown.Menu>
                                 <Dropdown.Item 
                                     as={ Link } 
-                                    to={`/movie/${props._id}`}
+                                    to={`/person/${props._id}`}
                                     icon='pencil' 
-                                    text='Edit Movie'
+                                    text='Edit Person'
                                 /> 
 
                                 <Dropdown.Divider/>
@@ -42,7 +42,7 @@ const PersonCardSemantic  = props => {
                                 <Dropdown.Item 
                                     onClick={() => props.deleteButton(props._id)}
                                     icon='trash' 
-                                    text='Delete Movie'
+                                    text='Delete Person'
                                 />
 
                             </Dropdown.Menu>

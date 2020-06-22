@@ -13,8 +13,8 @@ import PersonCard from '../cards/personCard';
 
 
 /** Body */
-const PersonsList  =  ({ personsReducerProps })  => {
-
+const PersonsList  =  ({ personsReducerProps, starOptionsProps, directorOptionsProps, onDeletePersonSubmitProps, pageUrlLastIndexProps })  => {
+    
     const listEmptyMessage = 
     (
         <ErrorMessageLabel
@@ -35,23 +35,41 @@ const PersonsList  =  ({ personsReducerProps })  => {
         }
         </Grid>
     );
-
-    const personCardContent = 
+const personCardContent = pageUrlLastIndexProps && pageUrlLastIndexProps === "directors" ?     
     (
-        
         <Grid stackable centered columns={"4"}>   
         {
-            personsReducerProps.personsReducerList.map(
+            /** LİST director */
+            directorOptionsProps.map( 
                 personListData => 
                 <PersonCard
                     key = { personListData._id }
                     personListDataProps = { personListData }
-                    //deleteMovieProps = { onDeleteMovieSubmitProps }
+                    deletePersonProps = { onDeletePersonSubmitProps }
+                /> 
+            )
+        }
+        </Grid>
+
+    ) :
+    (
+        <Grid stackable centered columns={"4"}>   
+        {
+            
+
+            starOptionsProps.map(
+                personListData => 
+                <PersonCard
+                    key = { personListData._id }
+                    personListDataProps = { personListData }
+                    deletePersonProps = { onDeletePersonSubmitProps }
                 />
             )
         }
         </Grid>
     );
+
+
 
     const displayCardContent = 
     (

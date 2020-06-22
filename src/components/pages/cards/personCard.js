@@ -3,7 +3,7 @@ import { Card, Grid } from 'semantic-ui-react';
 import PersonCardSemantic from '../../items/cards/PersonCardSemantic';
 
 
-const personCard  = ({ personListDataProps, deleteMovieProps }) => (
+const personCard  = ({ personListDataProps, deletePersonProps }) => (
     <Grid.Column>
  
         <Card>
@@ -17,7 +17,7 @@ const personCard  = ({ personListDataProps, deleteMovieProps }) => (
                 //filmography = { personListDataProps.filmography }
                 //directedMovies = { personListDataProps.directedMovies }
                 //createdAt = { personListDataProps.createdAt }
-                //deleteButton = { deleteMovieProps }
+                deleteButton = { deletePersonProps }
             />           
         </Card>
 

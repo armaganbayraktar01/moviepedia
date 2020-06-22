@@ -13,7 +13,7 @@ import MovieCard from '../cards/movieCard';
 
 
 /** Body */
-const MoviesList  = ({ moviesReducerProps }) => {
+const MoviesList  = ({ moviesReducerProps, onDeleteMovieSubmitProps }) => {
 
     const listEmptyMessage = 
     (
@@ -46,7 +46,7 @@ const MoviesList  = ({ moviesReducerProps }) => {
                 <MovieCard
                     key = { movieListData._id }
                     movieListDataProps = { movieListData }
-                    //deleteMovieProps = { onDeleteMovieSubmitProps }
+                    deleteMovieProps = { onDeleteMovieSubmitProps }
                 />
             )
         }

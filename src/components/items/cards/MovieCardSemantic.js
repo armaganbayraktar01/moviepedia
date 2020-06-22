@@ -32,7 +32,7 @@ const MovieCardSemantic  = props => {
                             <Dropdown.Menu>
                                 <Dropdown.Item 
                                     as={ Link } 
-                                    to={`/movie/${props._id}`}
+                                    to={`/movied/${props._id}`}
                                     icon='pencil' 
                                     text='Edit Movie'
                                 /> 

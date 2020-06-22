@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { Grid, Form, Image, Input, Button, TextArea } from 'semantic-ui-react';
 import Select from 'react-select';
+
+import { selectedOptions, convertedMediaUrl } from '../../../config/helpers';
+
+
 /** Semantic Item */
 import ErrorMessageLabel from '../../items/labels/ErrorMessageLabel';
 
@@ -19,12 +23,12 @@ class MovieForm extends Component
         imbd_rating: this.props.findEditMovieProps ? this.props.findEditMovieProps.imbd_rating : "",
         synopsis: this.props.findEditMovieProps ? this.props.findEditMovieProps.synopsis : "",
         duration: this.props.findEditMovieProps ? this.props.findEditMovieProps.duration : "",
-        genres: this.props.findEditMovieProps ? this.props.findEditMovieProps.genres : "",
+        genres: this.props.findEditMovieProps ? this.props.findEditMovieProps.genres : [],
         relase_year: this.props.findEditMovieProps ? this.props.findEditMovieProps.relase_year : "", 
-        director: this.props.findEditMovieProps ? this.props.findEditMovieProps.director : "",
-        cast: this.props.findEditMovieProps ? this.props.findEditMovieProps.cast : "", 
-        images: this.props.findEditMovieProps ? this.props.findEditMovieProps.images : "",
-        videos: this.props.findEditMovieProps ? this.props.findEditMovieProps.videos : "", 
+        director: this.props.findEditMovieProps ? this.props.findEditMovieProps.director : [],
+        cast: this.props.findEditMovieProps ? this.props.findEditMovieProps.cast : [], 
+        images: this.props.findEditMovieProps ? this.props.findEditMovieProps.images : [],
+        videos: this.props.findEditMovieProps ? this.props.findEditMovieProps.videos : [], 
         countries: this.props.findEditMovieProps ? this.props.findEditMovieProps.countries : "",
         formErrors: {},
         redirect: false,
@@ -33,7 +37,8 @@ class MovieForm extends Component
     static propTypes = {
         onAddMovieSubmitProps: PropTypes.func.isRequired,
         addMovieReducerProps: PropTypes.object.isRequired,
-        personsReducerProps: PropTypes.object.isRequired
+        directorProps: PropTypes.array.isRequired,
+        castProps: PropTypes.array.isRequired
     };
 
 
@@ -88,48 +93,69 @@ class MovieForm extends Component
         
     };
 
-    optionConverterHelper = (data) => {
-        const convertedData = Array.from(data);
-        return convertedData.map((item => (
-                { value: item._id, label: item.fullname }
-        )))
-    }
-
-    selectHelper = (data) => {
-        const convertedData = Array.from(data);
-        return convertedData.map((item => (
-                { value: item.value, label: item.label }
-        )))
-
-    };
- 
-    /** select handles */
-    handleChangeGenres = (genres) => {
-        this.setState({ genres });
-    }
-
-
-    /** Form Handles */
-
-    formHandleChange = (e) => 
-    {
-        this.setState({
-            [e.target.name]: e.target.value
-        });
-    };
-
     formValidate = () =>     
     {
         const err = {};
         if ( !this.state.title ) err.title = "Cant't be black"
         if ( !this.state.cover ) err.cover = "Cant't be black"
         return err;
-    };
+    }; 
 
+    /** Form Handles */
+    formHandleChange = (e) => 
+    {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    }; 
 
+ 
+    /** select handles */
+    handleChangeGenres = (genres) => {
+        this.setState({ genres });
+    }
 
-    render() {    
-     
+    handleChangeDirector = (director) => {
+        this.setState({ director });
+    }
+
+    handleChangeCast = (cast) => {
+        this.setState({ cast });
+    }
+
+    handleChangeImages = (e) => { 
+
+        const index = e.target.name;
+        const value = e.target.value;
+
+        const title = value;
+        const url = "https://image.tmdb.org/t/p/original/" + value + ".jpg";
+        const thumbUrl = "https://image.tmdb.org/t/p/w500_and_h282_face/" + value + ".jpg";
+
+        const images = this.state.images;
+        images[index] = {title:title, url: url, thumbUrl: thumbUrl};
+        
+        this.setState({images: images});
+    }
+
+    handleChangeVideos = (e) => { 
+        
+        const index = e.target.name;
+        const value = e.target.value;
+
+        const title = value;
+        const url = "https://www.youtube.com/watch?v=" + value;
+        const ytid = value;
+
+        const videos = this.state.videos;
+        videos[index] = {title:title, url: url, ytid: ytid};
+
+        this.setState({videos: videos});
+    }
+ 
+
+    render() { 
+
         const formErrors = this.state.formErrors;
         const emptyPicture = "https://m.media-amazon.com/images/G/01/imdb/images/nopicture/medium/film-3385785534._CB468454186_.png";
         const errorMessage = 
@@ -146,23 +172,33 @@ class MovieForm extends Component
 
         /** FORM */
 
-            /** GENRES */
+            /** Genres */
             const genresOptions = [
                 { value: '5ea03bd74904dc0db8e0cb98', label: 'comedy' },
                 { value: '5ea03bce4904dc0db8e0cb97', label: 'drama' },
                 { value: '5ea03bee4904dc0db8e0cb9a', label: 'action' },
                 { value: '5ea0318a7c213e39c43deae3', label: 'crime' }
             ]
+            const genresSelected = selectedOptions(this.state.genres)
 
-            const genresSelected = this.selectHelper(this.state.genres)
-            //console.log(genresSelected);
+            /** Director */
+            const directorOptions = selectedOptions(this.props.directorProps)
+            const directorSelected = selectedOptions(this.state.director)
 
-            /** Persons */
-            const personsOptions = this.optionConverterHelper(this.props.personsReducerProps.personsReducerList)
-       
+            /** Cast */
+            const castOptions = selectedOptions(this.props.castProps)
+            const castSelected = selectedOptions(this.state.cast)
+
+            /** Images */
+            const imageSelected = convertedMediaUrl(this.state.images)
+
+            /** Videos */
+            const videoSelected = convertedMediaUrl(this.state.videos)
+
 
         const form = 
         (
+            
             <Grid celled>              
 
                 <Grid.Column width={6} verticalAlign="middle">
@@ -173,60 +209,52 @@ class MovieForm extends Component
                         verticalAlign = "middle"
                     />
 
+
                 </Grid.Column>
 
                 <Grid.Column width={10}>
-                    
+                     
                         <Form
                             onSubmit= { this.formOnSubmit }
                             loading = { this.props.addMovieReducerProps.fetching || this.props.addMovieReducerProps.selectMovie.fetching }
-                        >
-
-                            <Form.Group widths='equal'>                             
-                                 
-                                <Form.Field
-                                    label = "persons"
-                                    control = { Select }
-                                    id = "persons"
-                                    name="persons"
-                                    placeholder="Select persons..."
-                                    options={personsOptions}
-                                    //value={personsSelected}
-                                    closeMenuOnSelect={false}
-                                    onChange={this.handleChangePersons}
-                                    isMulti
-                                // error = { formErrors.synopsis && formErrors.synopsis }                         
-                                />
- 
-                           </Form.Group>
+                        >                             
 
                             <Form.Field
                                 control = { Input }
-                                id = "title"
                                 name ="title"
-                                label = "Movie Title"
-                                value = { this.state.title }
-                                placeholder = "Movie title..."
+                                label = "Movie Title (Orginal)"
+                                value = { this.state.title  || "" }
+                                placeholder = "Movie Title (Orginal)..."
                                 onChange = { this.formHandleChange }
                                 error = { formErrors.title && formErrors.title }
                             />
+
                             <Form.Field
                                 control = { Input }
-                                id = "titleTr"
                                 name ="titleTr"
-                                label = "Movie titleTr"
-                                value = { this.state.titleTr }
-                                placeholder = "Movie titleTr..."
+                                label = "Movie Title (Turkish)"
+                                value = { this.state.titleTr  || "" }
+                                placeholder = "Movie Title (Turkish)..."
                                 onChange = { this.formHandleChange }
                                 error = { formErrors.titleTr && formErrors.titleTr }
                             />
+
                             <Form.Field
+                                label = "Synopsis"
+                                control = { TextArea }
+                                name ="synopsis"
+                                value = { this.state.synopsis  || "" }
+                                placeholder = "Add to Synopsis..."
+                                onChange = { this.formHandleChange }
+                                error = { formErrors.synopsis && formErrors.synopsis }                         
+                            />
+
+                            <Form.Field
+                                label = "Movie Poster"
                                 control = { Input }
-                                id = "cover"
                                 name ="cover"
-                                label = "Movie Cover URL"
-                                value = { this.state.cover }
-                                placeholder = "Movie cover URL..."
+                                value = { this.state.cover  || "" }
+                                placeholder = "Movie Poster URL..."
                                 onChange = { this.formHandleChange }
                                 error = { formErrors.cover && formErrors.cover }
                             />
@@ -235,84 +263,132 @@ class MovieForm extends Component
 
                                 <Form.Field
                                     control = { Input }
-                                    id = "imbd_id"
                                     name ="imbd_id"
-                                    label = "Movie imbd_id"
-                                    value = { this.state.imbd_id }
-                                    placeholder = "Movie  IMBD ID..."
+                                    label = "Imbd ID"
+                                    value = { this.state.imbd_id  || "" }
+                                    placeholder = "IMBD ID..."
                                     onChange = { this.formHandleChange }
                                     error = { formErrors.imbd_id && formErrors.imbd_id }                          
                                 />                   
 
                                 <Form.Field
                                     control = { Input }
-                                    id = "imbd_rating"
                                     name ="imbd_rating"
-                                    label = "Movie imbd ratings"
-                                    value = { this.state.imbd_rating }
-                                    placeholder = "Movie IMBD RATINGS..."
+                                    label = "IMBD Ratings"
+                                    value = { this.state.imbd_rating  || "" }
+                                    placeholder = "IMBD Ratings..."
                                     onChange = { this.formHandleChange }
                                     error = { formErrors.imbd_rating && formErrors.imbd_rating }                          
                                 />
+
                             </Form.Group>
 
                             <Form.Group widths='equal'>
 
                                 <Form.Field
                                     control = { Input }
-                                    id = "duration"
                                     name ="duration"
-                                    label = "Movie duration"
-                                    value = { this.state.duration }
-                                    placeholder = "Movie Duration..."
+                                    label = "Duration"
+                                    value = { this.state.duration || ""  }
+                                    placeholder = "Duration..."
                                     onChange = { this.formHandleChange }
                                     error = { formErrors.duration && formErrors.duration }                          
                                 />
 
                                 <Form.Field
                                     control = { Input }
-                                    id = "relase_year"
                                     name ="relase_year"
-                                    label = "Movie relase year"
-                                    value = { this.state.relase_year }
-                                    placeholder = "Movie relase year..."
+                                    label = "Relase Year"
+                                    value = { this.state.relase_year  || "" }
+                                    placeholder = "Relase Year..."
                                     onChange = { this.formHandleChange }
                                     error = { formErrors.relase_year && formErrors.relase_year }                          
                                 />
+
                             </Form.Group>
 
-                            <Form.Group widths='equal'>                             
-                                 
-                                <Form.Field
-                                    label = "Genres"
-                                    control = { Select }
-                                    id = "genres"
-                                    name="genres"
-                                    placeholder="Select Genres..."
-                                    options={genresOptions}
-                                    value={genresSelected}
-                                    closeMenuOnSelect={false}
-                                    onChange={this.handleChangeGenres}
-                                    isMulti
-                                   // error = { formErrors.synopsis && formErrors.synopsis }                         
-                                />
-
-
-                          </Form.Group>
-
-
                             <Form.Field
-                                control = { TextArea }
-                                id = "synopsis"
-                                name ="synopsis"
-                                label = "Movie synopsis"
-                                value = { this.state.synopsis }
-                                placeholder = "Movie synopsis..."
-                                onChange = { this.formHandleChange }
-                                error = { formErrors.synopsis && formErrors.synopsis }                         
+                                label = "Directors"
+                                control = { Select }
+                                name="director"
+                                placeholder="Select Directors..."
+                                options={directorOptions}
+                                value={directorSelected}
+                                closeMenuOnSelect={false}
+                                onChange={this.handleChangeDirector}
+                                isMulti
+                                // error = { formErrors.director && formErrors.director }                         
+                            />
+                            
+                            <Form.Field
+                                label = "Stars"
+                                control = { Select }
+                                name="cast"
+                                placeholder="Select Stars ..."
+                                options={castOptions}
+                                value = {castSelected || "" }
+                                closeMenuOnSelect={false}
+                                onChange={this.handleChangeCast}
+                                isMulti
+                                // error = { formErrors.cast && formErrors.cast }                         
                             />
 
+                            <Form.Field
+                                label = "Genres"
+                                control = { Select }
+                                name="genres"
+                                placeholder="Select Genres..."
+                                options={genresOptions}
+                                value = {genresSelected || "" }
+                                closeMenuOnSelect={false}
+                                onChange={this.handleChangeGenres}
+                                isMulti
+                                // error = { formErrors.synopsis && formErrors.synopsis }                         
+                            />
 
+                            <Form.Group widths='equal'>
+                                
+                                <Form.Field
+                                    control = { Input }
+                                    name ="0"
+                                    label = "Image 1"
+                                    placeholder = "Movie images..."
+                                    onChange = { this.handleChangeImages }
+                                    //error = { formErrors.images && formErrors.images }
+                                    value = {imageSelected[0] || "" }
+                                />
+
+                                <Form.Field
+                                    control = { Input }
+                                    name ="1"
+                                    label = "Image 2"
+                                    placeholder = "Movie images..."
+                                    onChange = { this.handleChangeImages }
+                                    //error = { formErrors.images && formErrors.images }
+                                    value = {imageSelected[1] || "" }
+                                />
+
+                                <Form.Field
+                                    control = { Input }
+                                    name ="2"
+                                    label = "Image 3"
+                                    placeholder = "Paste TMBD Image ID..."
+                                    onChange = { this.handleChangeImages }
+                                    //error = { formErrors.images && formErrors.images }
+                                    value = {imageSelected[2] || "" }
+                                />
+
+                            </Form.Group>
+
+                            <Form.Field
+                                control = { Input }
+                                name ="0"
+                                label = "Trailers & Videos"
+                                placeholder = "Paste Youtube Video ID..."
+                                onChange = { this.handleChangeVideos }
+                                //error = { formErrors.images && formErrors.images }
+                                value = {videoSelected[0] || "" }
+                            />  
 
                             <Form.Field
                                 fluid primary
@@ -322,8 +398,6 @@ class MovieForm extends Component
                                     this.props.addMovieReducerProps.selectMovie.editButtonActive === true
                                     ? "Edit Movie" : "Add Movie"
                                 } 
-            
-                                
                             />
 
                         </Form>

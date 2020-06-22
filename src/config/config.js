@@ -5,7 +5,7 @@ import moviesPage from '../components/pages/moviesPage';
 import movieDetailPage from '../components/pages/movieDetailPage';
 import addMoviePage from '../components/pages/addMoviePage';
 import personsPage from '../components/pages/personsPage';
-//import personDetailPage from '../components/pages/personDetailPage';
+import personDetailPage from '../components/pages/personDetailPage';
 
 export const siteMeta = {
     title: 'Moviepedia',
@@ -46,14 +46,20 @@ export const navbarMenus = {
         path: '/movied/:_id',
         component: addMoviePage
     },
-    personspage: {
-        title: 'Persons',
-        path: '/persons',
+    castpage: {
+        title: 'Stars',
+        path: '/persons/stars',
         component: personsPage
-    },/*
+    },
+    directorspage: {
+        title: 'Directors',
+        path: '/persons/directors',
+        component: personsPage
+    },
+
     persondetailpage: {
         title: 'Persons',
         path: '/person/:_id',
         component: personDetailPage
-    },*/
+    }
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Container, Header, Label, Grid, Segment, Card, Image, Embed  } from 'semantic-ui-react';
-
+import { Container, Header, Label, Grid, Segment, Card, Image, Embed, Statistic, Icon } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 /** CSS Files */
 import './MovieDetailCard.css';
 
@@ -52,7 +52,7 @@ const movieDetailCard  = ({ movieData }) => {
 
                         <Segment className="movieInfo">
                             <Grid stackable>
-                                <Grid.Column width={10} floated="left" >
+                                <Grid.Column width={12} floated="left" >
 
                                     <Header className="movieInfoTitle" textAlign="left">
 
@@ -75,27 +75,26 @@ const movieDetailCard  = ({ movieData }) => {
                                 </Grid.Column>
 
 
-                                <Grid.Column width={6}>
+                                <Grid.Column width={4}>
+
+                                        <Segment basic className="statistic">
+
+                                            <Statistic.Group inverted color='yellow' className="statisticGroup">
+
+                                                <Statistic horizontal className="statisticBox">
+
+                                                    <Statistic.Label>
+                                                        <Icon name='star' color='yellow'/>
+                                                    </Statistic.Label>                                         
+                                                    <Statistic.Value>                                                        
+                                                        <span className="statisticValue">{ movieData.imbd_rating }</span>
+                                                    </Statistic.Value>
+                                                    <Statistic.Label>/10</Statistic.Label>
+
+                                                </Statistic>
+                                            </Statistic.Group>
+                                        </Segment>
                                     
-                                    <Label basic circular className="movieInfoRating" size="large">
-
-                                        <Label
-                                            basic 
-                                            size='massive'
-                                            className="movieInfoRatingLabel" 
-                                            icon='star'
-                                        />                            
-
-                                        <Label className="movieInfoRatingText" size="massive">
-
-                                            { movieData.imbd_rating }
-
-                                            <Label className="movieInfoRatingText movieInfoRatingSpan" size="medium" basic content=" / 10"/>
-                                            
-                                        </Label>
-
-                                    </Label>
-
                                 </Grid.Column>
                             </Grid>
                         </Segment>
@@ -191,6 +190,8 @@ const movieDetailCard  = ({ movieData }) => {
                                     {
                                         directors.map((director) => 
                                             <Card key={ director._id }
+                                                as={Link}
+                                                to={`/person/${director._id}`}
                                                 image= {director.cover}
                                                 header = { director.fullname } 
                                                 meta = "Director"                                   
@@ -201,6 +202,8 @@ const movieDetailCard  = ({ movieData }) => {
                                     {                                    
                                         persons.map((person) => 
                                             <Card key = { person._id}
+                                                as={Link}
+                                                to={`/person/${person._id}`}
                                                 image= { person.cover }
                                                 header = { person.fullname }
                                                 meta = ""

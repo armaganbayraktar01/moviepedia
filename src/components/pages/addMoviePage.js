@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import MovieForm from './forms/MovieForm';
 import { onAddMovieSubmit, onUpdateMovieSubmit, onFetchEditMovie } from '../../actions/addMovieReducerAction';
-import { onFetchPersons } from '../../actions/personsReducerActions';
+import { onFetchPersons } from '../../actions/personsReducerAction';
 
 class addMoviePage extends Component
 {
@@ -12,9 +12,10 @@ class addMoviePage extends Component
     componentDidMount() {
         const { match } = this.props;
 
-        if (!this.props.findEditMovie && match.params._id )
+        if (!this.props.findEditMovie && match.params._id)
         {
             this.props.onFetchEditMovie(match.params._id);
+            //console.log("edit page")
         }
 
         this.props.onFetchPersons();
@@ -23,6 +24,7 @@ class addMoviePage extends Component
 
 
     render() {
+
         return (
             <div>
                 <MovieForm
@@ -30,7 +32,8 @@ class addMoviePage extends Component
                     addMovieReducerProps = { this.props.addMovieReducer }
                     onAddMovieSubmitProps = { this.props.onAddMovieSubmit }
                     onUpdateMovieSubmitProps = { this.props.onUpdateMovieSubmit }
-                    personsReducerProps = { this.props.personsReducer} 
+                    directorProps = { this.props.director}
+                    castProps = { this.props.cast}
       
                 />
             </div>
@@ -43,7 +46,8 @@ const mapStateToProps = ({ addMovieReducer, moviesReducer, personsReducer }, pro
     return {
         addMovieReducer,
         findEditMovie: moviesReducer.moviesReducerList.find( item => item._id === props.match.params._id),
-        personsReducer
+        director: personsReducer.personsReducerList.filter( item => item.jobs === "director"),
+        cast: personsReducer.personsReducerList.filter( item => item.jobs !== "director" )
     }
 };
 

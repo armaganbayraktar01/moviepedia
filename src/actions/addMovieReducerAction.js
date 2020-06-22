@@ -21,17 +21,17 @@ export const FETCH_EDIT_MOVIE_REJECTED = "FETCH_EDIT_MOVIE_REJECTED";
 // ADD MOVIE
 export function onAddMovieSubmit({ 
         title, titleTr, cover, imbd_id, imbd_rating, synopsis, duration, 
-        relase_year, genres//, director, cast, images, videos, countries, genres
+        relase_year, genres, director, cast, images, videos//, countries
 })
 {
     
     /** {value: "5555", label: "label01"} diye gelen datadan sadece value yi object id olarak kullandık */
     const genresObjectID = genres.map((item => item.value))
-    //console.log(genresObjectID)
+    const directorObjectID = director.map((item => item.value))
+    const castObjectID = cast.map((item => item.value))
 
     return dispatch => 
     {
-
         dispatch
         (
             {
@@ -39,7 +39,7 @@ export function onAddMovieSubmit({
                 payload: axios.post(`${API_BASE}/movies`,
                 {
                     title, titleTr, cover, imbd_id, imbd_rating, synopsis, duration, 
-                    relase_year, genres:genresObjectID //, director, cast, images, videos, countries, genres
+                    relase_year, genres:genresObjectID, director:directorObjectID, cast:castObjectID, images, videos//, countries
                 })
                 .then(result => result.data)
                 //.then(result => console.log(result.data))
@@ -52,10 +52,15 @@ export function onAddMovieSubmit({
 // UPDATE MOVIE
 export function onUpdateMovieSubmit({
      _id, title, titleTr, cover, imbd_id, imbd_rating, synopsis, duration, 
-     relase_year, genres//, director, cast, images, videos, countries, genres
+     relase_year, genres, director, cast, images, videos//, countries
 })
 {
+
+
     const genresObjectID = genres.map((item => item.value))
+    const directorObjectID = director.map((item => item.value ? item.value : item._id))
+    const castObjectID = cast.map((item => item.value ? item.value : item._id ))
+
     return dispatch => 
     {
         dispatch
@@ -65,8 +70,12 @@ export function onUpdateMovieSubmit({
                 payload: axios.put(`${API_BASE}/movies/${_id}`,
                 {
                     title, titleTr, cover, imbd_id, imbd_rating, synopsis, duration, 
-                    relase_year, genres:genresObjectID//, director, cast, images, videos, countries, genres
+                    relase_year, genres:genresObjectID, director:directorObjectID, cast:castObjectID, images, videos//, countries
+
+                     
                 })
+
+                //.then(result => console.log(result.data))
             }
         )            
     }
