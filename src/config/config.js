@@ -1,11 +1,13 @@
 import siteLogo from '../logo.svg';
 import adminPage from '../components/pages/adminPage';
+import loginPage from '../components/pages/loginPage';
 import homePage from '../components/pages/homePage';
 import moviesPage from '../components/pages/moviesPage';
 import movieDetailPage from '../components/pages/movieDetailPage';
 import addMoviePage from '../components/pages/addMoviePage';
 import personsPage from '../components/pages/personsPage';
 import personDetailPage from '../components/pages/personDetailPage';
+import addPersonPage from '../components/pages/addPersonPage';
 
 export const siteMeta = {
     title: 'Moviepedia',
@@ -20,6 +22,11 @@ export const navbarMenus = {
         title: 'Admin',
         path: '/dashboard',
         component: adminPage
+    },
+    loginpage: {
+        title: 'Login',
+        path: '/login',
+        component: loginPage
     },
     homepage: {
         title: 'Home',
@@ -38,12 +45,12 @@ export const navbarMenus = {
     },
     addmoviepage: {
         title: 'Add Movie',
-        path: '/movies/addmovie',
+        path: '/dashboard/movie/add',
         component: addMoviePage
     },
     editmoviepage: {
         title: 'Edit Movie',
-        path: '/movied/:_id',
+        path: '/dashboard/movie/edit/:_id',
         component: addMoviePage
     },
     castpage: {
@@ -61,5 +68,16 @@ export const navbarMenus = {
         title: 'Persons',
         path: '/person/:_id',
         component: personDetailPage
-    }
+    },
+    addpersonpage: {
+        title: 'Add Person',
+        path: '/dashboard/person/add',
+        component: addPersonPage
+    },
+    editpersonpage: {
+        title: 'Edit Person',
+        path: '/dashboard/person/edit/:_id',
+        component: addPersonPage
+    },
+
 }

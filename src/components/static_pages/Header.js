@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import {connect} from 'react-redux';
 
 /** Components */
 import { Menu, Container, Image } from 'semantic-ui-react';
@@ -10,8 +11,13 @@ import { siteMeta, navbarMenus } from '../../config/config';
 
 class Header extends Component
 {
+
     render()
     {
+
+    
+    console.log(this.props.currentUser)
+
         const header = (
             <div>
                 <Menu fixed='top' inverted>
@@ -38,7 +44,20 @@ class Header extends Component
                             { navbarMenus.castpage.title }
                         </Menu.Item>
 
+                        <Menu.Item as={ NavLink } to={navbarMenus.addpersonpage.path}>
+                            { navbarMenus.addpersonpage.title }
+                        </Menu.Item>
+
+                        <Menu.Item>
+                            
+                        </Menu.Item>
+                                                
+                        <Menu.Item as={ Link } to={navbarMenus.loginpage.path} position='right'>
+                            { navbarMenus.loginpage.title }
+                        </Menu.Item>
+
                     </Container>
+
                 </Menu>
             </div>
         )
@@ -52,4 +71,4 @@ class Header extends Component
 }
 
 
-export default Header;
+export default connect(null, null)(Header);

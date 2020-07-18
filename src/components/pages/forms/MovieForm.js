@@ -185,6 +185,8 @@ class MovieForm extends Component
             const directorOptions = selectedOptions(this.props.directorProps)
             const directorSelected = selectedOptions(this.state.director)
 
+            console.log(this.props)
+
             /** Cast */
             const castOptions = selectedOptions(this.props.castProps)
             const castSelected = selectedOptions(this.state.cast)

@@ -40,14 +40,22 @@ class addMoviePage extends Component
         );
     }
 }
-
+  
 
 const mapStateToProps = ({ addMovieReducer, moviesReducer, personsReducer }, props) => {
+
+    const convert = (arr) => {
+
+        return arr.map(item => item.value)
+    }
+
+
+
     return {
         addMovieReducer,
         findEditMovie: moviesReducer.moviesReducerList.find( item => item._id === props.match.params._id),
-        director: personsReducer.personsReducerList.filter( item => item.jobs === "director"),
-        cast: personsReducer.personsReducerList.filter( item => item.jobs !== "director" )
+        director: personsReducer.personsReducerList.filter( item => convert(item.jobs).indexOf("actor") && convert(item.jobs).indexOf("actress") ),
+        cast: personsReducer.personsReducerList.filter( item => convert(item.jobs).indexOf("director") ),
     }
 };
 

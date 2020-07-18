@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Container, Header, Grid, Segment, Card, Image, Label, List, Statistic } from 'semantic-ui-react';
+import { Container, Header, Grid, Segment, Card, Image, Statistic } from 'semantic-ui-react';
 import { formatDate, calculateAge } from '../../../config/helpers';
 import { Link } from 'react-router-dom';
 
@@ -27,7 +27,7 @@ const directedMoviesData = personData.directedMovies ? Array.from(personData.dir
                         <Image
                             className="infoContainerImg"
                             //src = { personData.cover }
-                            SRC="https://image.tmdb.org/t/p/original/fab7CdKtXSWov5h1ZnrYcWl1ROx.jpg"
+                            src="https://image.tmdb.org/t/p/original/fab7CdKtXSWov5h1ZnrYcWl1ROx.jpg"
                         />
 
                         <Segment className="personInfo">
@@ -145,7 +145,7 @@ const directedMoviesData = personData.directedMovies ? Array.from(personData.dir
                             <Segment basic>
 
                                 <Header size="medium"  className="castTitle">
-                                    ROL ALDIĞI FİLMLER
+                                    {directedMoviesData.length >= 1 ? "YÖNETTİĞİ FİLMLER" : "ROL ALDIĞI FİLMLER"} 
                                 </Header>
                             </Segment>  
 
@@ -170,7 +170,7 @@ const directedMoviesData = personData.directedMovies ? Array.from(personData.dir
                                                 as={Link}
                                                 to={`/movie/${item._id}`}
                                                 image= { item.cover }
-                                                header = { item.titleTr }
+                                                header = { `${item.titleTr} (${item.relase_year})` }
                                                 meta = ""
                                             />
                                         )

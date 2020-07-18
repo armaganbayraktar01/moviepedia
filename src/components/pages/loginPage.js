@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 //import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import LoginForm from '../items/forms/LoginForm';
-
 
 class loginPage extends Component
 {
@@ -16,9 +14,8 @@ class loginPage extends Component
     render() {
         return (
             <div>
-                <LoginForm
-                
-                />    
+                Login Page
+                    
             </div>
         );
     }

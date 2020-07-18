@@ -27,15 +27,19 @@ class App extends Component {
         <Header/>
         <Container text >
           <Switch>
-          <Route exact path={navbarMenus.homepage.path} component={navbarMenus.homepage.component}></Route>
-          <Route exact path={navbarMenus.moviespage.path} component={navbarMenus.moviespage.component}></Route>
-          <Route exact path={navbarMenus.moviedetailpage.path} component={navbarMenus.moviedetailpage.component}></Route>
-          <Route exact path={navbarMenus.addmoviepage.path} component={navbarMenus.addmoviepage.component}></Route>
-          <Route exact path={navbarMenus.editmoviepage.path} component={navbarMenus.editmoviepage.component}></Route>
-          <Route exact path={navbarMenus.directorspage.path} component={navbarMenus.directorspage.component}></Route>
-          <Route exact path={navbarMenus.castpage.path} component={navbarMenus.castpage.component}></Route>
-          <Route exact path={navbarMenus.persondetailpage.path} component={navbarMenus.persondetailpage.component}></Route>
+            <Route exact path={navbarMenus.homepage.path} component={navbarMenus.homepage.component}></Route>
+            <Route exact path={navbarMenus.moviespage.path} component={navbarMenus.moviespage.component}></Route>
+            <Route exact path={navbarMenus.moviedetailpage.path} component={navbarMenus.moviedetailpage.component}></Route>
+            <Route exact path={navbarMenus.addmoviepage.path} component={navbarMenus.addmoviepage.component}></Route>
+            <Route exact path={navbarMenus.editmoviepage.path} component={navbarMenus.editmoviepage.component}></Route>
+            <Route exact path={navbarMenus.directorspage.path} component={navbarMenus.directorspage.component}></Route>
+            <Route exact path={navbarMenus.castpage.path} component={navbarMenus.castpage.component}></Route>
+            <Route exact path={navbarMenus.persondetailpage.path} component={navbarMenus.persondetailpage.component}></Route>
+            <Route exact path={navbarMenus.addpersonpage.path} component={navbarMenus.addpersonpage.component}></Route>
+            <Route exact path={navbarMenus.editpersonpage.path} component={navbarMenus.editpersonpage.component}></Route>
+            <Route exact path={navbarMenus.loginpage.path} component={navbarMenus.loginpage.component}></Route>
           </Switch>
+
         </Container>
         <Footer/>        
       </div>

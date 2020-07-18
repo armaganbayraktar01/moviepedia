@@ -1,0 +1,89 @@
+:root {
+  --datepicker__background-color: #f0f0f0;
+  --datepicker__border-color: #aeaeae;
+  --datepicker__highlighted-color: #3dcc4a;
+  --datepicker__muted-color: #ccc;
+  --datepicker__selected-color: #216ba5;
+  --datepicker__text-color: #fff;
+  --datepicker__header-color: #1678c2;
+  --datepicker__navigation-disabled-color: lighten(var(--datepicker__muted-color), 10%)
+ ;
+ 
+
+  --datepicker__font-size: 1rem;
+  --datepicker__font-family: 'Montserrat', 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  --datepicker__item-size: 1.7rem;
+  --datepicker__margin: 0.4rem;
+  --datepicker__navigation-size: 0.45rem;
+  --datepicker__triangle-size: 8px;
+}
+
+
+
+.react-datepicker {
+  font-family: var(--datepicker__font-family);
+  font-size: var(--datepicker__font-size);
+}
+
+.react-datepicker-wrapper,
+.react-datepicker__input-container,
+.react-datepicker__input-container input {
+  display: block;
+  width: 100%;
+}
+.react-datepicker__header {
+  background-color: var(--datepicker__header-color);
+}
+
+.react-datepicker__current-month {
+  color: var(--datepicker__text-color);
+  margin-bottom: 15px;
+}
+
+.react-datepicker__day-name {
+  color: var(--datepicker__text-color);
+  font-size: var(--datepicker__font-size);
+  font-weight: bold;
+}
+
+/** Calendar */
+.react-datepicker__day:hover,
+.react-datepicker__month-text:hover,
+.react-datepicker__quarter-text:hover,
+.react-datepicker__year-text:hover {  
+  background-color: var(--datepicker__muted-color);
+}
+
+
+
+/** Time Input */
+
+.react-datepicker__input-time-container {
+  vertical-align: center;
+}
+
+.react-datepicker__input-time-container .react-datepicker-time__caption {
+  margin-right: 20px;
+}
+
+
+
+
+.react-datepicker__input-time-container {
+  text-align: center;
+  margin-left: 0;
+}
+
+
+
+.react-datepicker__input-time-container .react-datepicker-time__input-container .react-datepicker-time__input input {
+  width: 200px;
+  text-align: center;
+}
+
+
+
+
+

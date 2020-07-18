@@ -32,7 +32,7 @@ const PersonCardSemantic  = props => {
                             <Dropdown.Menu>
                                 <Dropdown.Item 
                                     as={ Link } 
-                                    to={`/person/${props._id}`}
+                                    to={`/dashboard/person/edit/${props._id}`}
                                     icon='pencil' 
                                     text='Edit Person'
                                 /> 

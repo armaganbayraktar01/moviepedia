@@ -1,4 +1,17 @@
 /** data convert to react-select format {label:"", text:""} */
+
+
+export const selectedOptionsJobs = ( stateOrProps ) => {
+    
+    const convertData = stateOrProps ? Array.from(stateOrProps) : [];
+    
+    return convertData.map(( item => (
+        { value: item, label: item }
+    )))
+
+}
+
+
 export const selectedOptions = ( stateOrProps ) => {
     
     const convertData = stateOrProps ? Array.from(stateOrProps) : [];
@@ -8,6 +21,8 @@ export const selectedOptions = ( stateOrProps ) => {
     )))
 
 }
+
+
 
 
 export const selectedOptionsPerson = ( stateOrProps ) => {
