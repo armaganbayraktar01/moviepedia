@@ -1,6 +1,5 @@
 /** data convert to react-select format {label:"", text:""} */
 
-
 export const selectedOptionsJobs = ( stateOrProps ) => {
     
     const convertData = stateOrProps ? Array.from(stateOrProps) : [];
@@ -15,20 +14,11 @@ export const selectedOptionsJobs = ( stateOrProps ) => {
 export const selectedOptions = ( stateOrProps ) => {
     
     const convertData = stateOrProps ? Array.from(stateOrProps) : [];
-    
-    return convertData.map(( item => (
-        { value: (item._id ? item._id : item.value), label: item.fullname ? item.fullname : (item.title ? item.title : item.label) }
-    )))
+    return convertData.map(( item => 
+        ( { key: item._id, value: item._id, text: item.fullname || item.text })
+    ))
 
-}
-
-export const selectedOptionsPerson = ( stateOrProps ) => {
     
-    const convertData = stateOrProps ? Array.from(stateOrProps) : [];
-    
-    return convertData.map(( item => (
-        { value: item._id ? item._id : item.value, label: item.fullname ? item.fullname : item.label }
-    )))
 
 }
 
@@ -38,6 +28,7 @@ export const convertedMediaUrl = ( stateOrProps ) => {
 
     return convertData.map(( item => item.title ))
 }
+
 
 export const formatDate = (string) => {
     var options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -73,4 +64,10 @@ export const calculateAge = (birthday) => {
             */
             return ` (${years} yaşında)`;
            
+}
+
+export const getWidth = (Responsive) => {
+    const isSSR = typeof window === 'undefined'
+  
+    return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth
 }

@@ -1,13 +1,19 @@
 import siteLogo from '../logo.svg';
-import adminPage from '../components/pages/adminPage';
-import loginPage from '../components/pages/loginPage';
-import homePage from '../components/pages/homePage';
-import moviesPage from '../components/pages/moviesPage';
-import movieDetailPage from '../components/pages/movieDetailPage';
-import addMoviePage from '../components/pages/addMoviePage';
-import personsPage from '../components/pages/personsPage';
-import personDetailPage from '../components/pages/personDetailPage';
-import addPersonPage from '../components/pages/addPersonPage';
+import loginPage from '../components/_login/loginPage';
+import registerPage from '../components/_register/registerPage';
+import profilePage from '../components/pages/profilePage';
+import { AdminPage } from '../components/_admin/adminPage';
+
+import homePage from '../components/_api/homePage';
+import moviesPage from '../components/_api/moviesPage';
+import { MovieDetailPage } from '../components/_api/movieDetailPage';
+import personsPage from '../components/_api/personsPage';
+import { PersonDetailPage } from '../components/_api/personDetailPage';
+// import addMoviePage from '../components/_admin/addMoviePage';
+// import addPersonPage from '../components/_admin/addPersonPage';
+
+import { AddMoviePage } from '../components/_admin/addMoviePage';
+import addPersonPage from '../components/_admin/addPersonPage';
 
 export const siteMeta = {
     title: 'Moviepedia',
@@ -18,56 +24,67 @@ export const siteMeta = {
 };
 
 export const navbarMenus = {
-    adminpage: {
-        title: 'Admin',
-        path: '/dashboard',
-        component: adminPage
-    },
     loginpage: {
         title: 'Login',
         path: '/login',
         component: loginPage
+    },
+    registerpage: {
+        title: 'Register',
+        path: '/register',
+        component: registerPage
+    },
+    profilepage: {
+        title: 'Profile',
+        path: '/profile',
+        component: profilePage
+    },
+    adminpage: {
+        title: 'Dashboard',
+        path: '/dashboard',
+        component: AdminPage
     },
     homepage: {
         title: 'Home',
         path: '/',
         component: homePage
     },
+
     moviespage: {
         title: 'Movies',
-        path: '/movies',
+        path: '/api/movies',
         component: moviesPage
     },
     moviedetailpage: {
         title: 'Movies',
-        path: '/movie/:_id',
-        component: movieDetailPage
+        path: '/api/movie/:_id',
+        component: MovieDetailPage
     },
     addmoviepage: {
         title: 'Add Movie',
         path: '/dashboard/movie/add',
-        component: addMoviePage
+        component: AddMoviePage
     },
     editmoviepage: {
         title: 'Edit Movie',
         path: '/dashboard/movie/edit/:_id',
-        component: addMoviePage
+        component: AddMoviePage
     },
     castpage: {
         title: 'Stars',
-        path: '/persons/stars',
+        path: '/api/persons/stars',
         component: personsPage
     },
     directorspage: {
         title: 'Directors',
-        path: '/persons/directors',
+        path: '/api/persons/directors',
         component: personsPage
     },
 
     persondetailpage: {
         title: 'Persons',
-        path: '/person/:_id',
-        component: personDetailPage
+        path: '/api/person/:_id',
+        component: PersonDetailPage
     },
     addpersonpage: {
         title: 'Add Person',

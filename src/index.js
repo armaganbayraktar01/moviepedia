@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router } from 'react-router-dom';
 import './index.css';
+
+
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
@@ -12,14 +15,11 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 import promise from 'redux-promise-middleware';
 
-/** React Router */
-import { BrowserRouter } from 'react-router-dom';
-
 /** Root Reducer */
-import rootReducer from './reducers/rootReducer';
+import rootReducer from './_core/_reducers/rootReducer';
 
-/** JWT */
-import { setAuthorizationToken } from "./config/setAuthorizationToken";
+/** Helpers */
+import { history } from './_helpers/history';
 
 /** Store */
 const store = createStore(
@@ -29,20 +29,14 @@ const store = createStore(
   )
 );
 
-/** JWT TOKEN */
-
-const jwtToken = localStorage.getItem("jwtToken");
-if (jwtToken) {
-    setAuthorizationToken(jwtToken);
-}
 
 
 ReactDOM.render(
-    <BrowserRouter>
+    <Router history={ history } >
       <Provider store = { store } >
         <App />
       </Provider>
-    </BrowserRouter>,
+    </Router>,
   document.getElementById('root')
 );
 

@@ -10,7 +10,8 @@ class addMoviePage extends Component
 {
 
     componentDidMount() {
-        const { match } = this.props;
+       const { match } = this.props;
+        console.log(this.props)
 
         if (!this.props.findEditMovie && match.params._id)
         {

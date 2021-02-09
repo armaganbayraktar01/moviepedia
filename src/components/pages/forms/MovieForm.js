@@ -174,10 +174,10 @@ class MovieForm extends Component
 
             /** Genres */
             const genresOptions = [
-                { value: '5ea03bd74904dc0db8e0cb98', label: 'comedy' },
-                { value: '5ea03bce4904dc0db8e0cb97', label: 'drama' },
-                { value: '5ea03bee4904dc0db8e0cb9a', label: 'action' },
-                { value: '5ea0318a7c213e39c43deae3', label: 'crime' }
+                { value: '5ffc2f3150d4d0f7a0795bd0', label: 'comedy' },
+                { value: '5ffc2ef350d4d0f7a0795bcf', label: 'drama' },
+                { value: '5ffc25542d1814dc4da148a6', label: 'action' },
+                { value: '5ffc24cc2d1814dc4da148a5', label: 'crime' }
             ]
             const genresSelected = selectedOptions(this.state.genres)
 
